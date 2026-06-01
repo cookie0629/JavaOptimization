@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 引入 Javassist 用于字节码操作
+    implementation 'org.javassist:javassist:3.29.2-GA'
+}
+
+jar {
+    archiveBaseName.set('agent-demo')
+    // 解决打包时的重复文件冲突
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    // 将 Javassist 的 class 文件一并打入 Jar 包（Fat Jar 技巧）
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    // 配置 Agent 的核心 Manifest 属性
+    manifest {
+        attributes(
+                'Premain-Class': 'org.example.agent.MyAgent',
+                'Agent-Class': 'org.example.agent.MyAgent',
+                'Can-Redefine-Classes': 'true',
+                'Can-Retransform-Classes': 'true'
+        )
+    }
+}

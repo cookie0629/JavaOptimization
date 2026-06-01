@@ -1,0 +1,71 @@
+# 编译输出目录
+/bin/
+/build/
+/out/
+/target/
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# Gradle
+.gradle/
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+gradle-app.setting
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+.loadpath
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# 日志文件
+*.log
+
+# 操作系统生成的文件
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*~
+
+# Java 编译生成的文件
+*.class
+*.jar
+*.war
+*.ear
+
+# 覆盖率和测试报告
+/coverage/
+/test-output/
+/surefire-reports/
+/jacoco.exec
+
+# 本地配置文件（不要提交到仓库）
+application-local.properties
+application-dev.properties
+*.hprof 
